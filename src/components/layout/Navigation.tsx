@@ -2,16 +2,12 @@
 
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, X } from 'lucide-react';
-import Image from 'next/image';
+import { Menu } from 'lucide-react';
 import { useState } from 'react';
 import { useSmartNavigation } from '@/hooks/useSmartNavigation';
 
 const DEFAULT_NAVIGATION = {
-  logoUrl:
-    'https://pub-60de11c8c43b49ea9bd786eb6273aa91.r2.dev/394e026a1b7f0bc1403b869b5a803415.svg',
-  logoAlt: 'Company Logo',
-  brandName: '',
+  brandName: 'TechFlow',
   navItems: [{ label: 'Home', href: '#hero' }],
   ctaText: 'Get Started',
   ctaHref: '#hero',
@@ -42,25 +38,14 @@ export default function Navigation(props: NavigationProps) {
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <Image
-              src={config.logoUrl}
-              alt={config.logoAlt}
-              width={120}
-              height={48}
-              className="h-8 md:h-10 lg:h-12 w-auto object-contain"
-              data-editable-src="logoUrl"
-              priority
-            />
-            {config.brandName && (
-              <span
-                className="text-xl md:text-2xl font-bold text-foreground"
-                data-editable="brandName"
-              >
-                {config.brandName}
-              </span>
-            )}
+          {/* Brand Name */}
+          <div className="flex items-center">
+            <span
+              className="text-xl md:text-2xl font-bold text-foreground"
+              data-editable="brandName"
+            >
+              {config.brandName}
+            </span>
           </div>
 
           {/* Desktop Navigation */}
@@ -107,21 +92,11 @@ export default function Navigation(props: NavigationProps) {
               </SheetTrigger>
               <SheetContent side="right" className="bg-background text-foreground border-border">
                 <div className="flex flex-col space-y-6 mt-8">
-                  {/* Mobile Logo */}
-                  <div className="flex items-center space-x-3 pb-6 border-b border-border">
-                    <Image
-                      src={config.logoUrl}
-                      alt={config.logoAlt}
-                      width={120}
-                      height={48}
-                      className="h-8 w-auto object-contain"
-                      data-editable-src="logoUrl"
-                    />
-                    {config.brandName && (
-                      <span className="text-xl font-bold text-foreground" data-editable="brandName">
-                        {config.brandName}
-                      </span>
-                    )}
+                  {/* Mobile Brand */}
+                  <div className="flex items-center pb-6 border-b border-border">
+                    <span className="text-xl font-bold text-foreground" data-editable="brandName">
+                      {config.brandName}
+                    </span>
                   </div>
 
                   {/* Mobile Navigation Items */}
